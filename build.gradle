@@ -1,0 +1,83 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.beryx.jlink' version '2.26.0'
+}
+
+group 'com.trees'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+task printGradleJdk {
+    doLast {
+        println "Gradle is using JDK at: " + System.getProperty("java.home")
+    }
+}
+
+ext {
+    junitVersion = '5.10.0'
+}
+
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+//
+//application {
+//    mainModule = 'com.trees.binarytreeproject'
+//    mainClass = 'com.trees.binarytreeproject.StartApplication'
+//}
+application {
+    mainModule = 'com.trees.binarytreeproject'
+    mainClass = 'com.trees.binarytreeproject.StartApplication'
+    applicationDefaultJvmArgs = [
+            "--module-path","C:/openjfx-21.0.6_windows-x64_bin-sdk/javafx-sdk-21.0.6/lib",
+            "--add-modules", "javafx.controls,javafx.fxml,javafx.swing"
+    ]
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.swing']
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    implementation("org.openjfx:javafx-controls:21")
+    implementation("org.openjfx:javafx-fxml:21")
+    implementation("org.openjfx:javafx-swing:21")
+    implementation("org.apache.pdfbox:pdfbox:2.0.27")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jlink {
+    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'app'
+    }
+}
+
+jlinkZip {
+    group = 'distribution'
+}
+
+// Виправлено mainClass у manifest, щоб збігався з секцією application
+jar {
+    from sourceSets.main.output
+    manifest {
+        attributes 'Main-Class': 'com.trees.binarytreeproject.StartApplication'
+    }
+}

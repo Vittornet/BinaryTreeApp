@@ -1,0 +1,21 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:id="menuRoot"
+            fx:controller="com.trees.binarytreeproject.infrastructure.controller.MenuController"
+            styleClass="anchor-pane">
+    <children>
+        <VBox alignment="CENTER" spacing="15"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button fx:id="btnVisualization" text="Візуалізація дерев" prefWidth="200" prefHeight="40" onAction="#onVisualizationClicked"/>
+                <Button fx:id="btnInfo" text="Інформація про дерева" prefWidth="200" prefHeight="40" onAction="#onInfoClicked"/>
+                <Button fx:id="btnTests" text="Тести" prefWidth="200" prefHeight="40" onAction="#onTestsClicked"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

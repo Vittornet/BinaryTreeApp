@@ -1,0 +1,29 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:id="testsRoot"
+            fx:controller="com.trees.binarytreeproject.infrastructure.controller.TestsController"
+            styleClass="anchor-pane">
+    <top>
+        <HBox spacing="10" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-padding: 10;">
+            <Label text="Вибір тесту:"/>
+            <ComboBox fx:id="testTypeComboBox" prefWidth="200" styleClass="combo-box"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="questionsScrollPane" fitToWidth="true" fitToHeight="true" style="-fx-padding: 10;">
+            <content>
+                <VBox fx:id="questionsContainer" spacing="10" style="-fx-padding: 10;"/>
+            </content>
+        </ScrollPane>
+    </center>
+
+
+    <bottom>
+        <HBox spacing="20" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-padding: 10;">
+            <Button fx:id="submitButton" text="Submit Test" prefWidth="150"/>
+            <Button fx:id="backButton" text="Back to Menu" prefWidth="150" onAction="#backToMenu"/>
+        </HBox>
+    </bottom>
+</BorderPane>

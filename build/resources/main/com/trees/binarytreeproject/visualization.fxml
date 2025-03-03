@@ -1,0 +1,37 @@
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:id="visualizationRoot"
+            fx:controller="com.trees.binarytreeproject.infrastructure.controller.VisualizationController"
+            styleClass="anchor-pane">
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <ComboBox fx:id="treeTypeComboBox" prefWidth="200" styleClass="combo-box"/>
+            <Button fx:id="clearTreeButton" text="Clear Tree" prefWidth="200" onAction="#handleClearTree"/>
+            <TextField fx:id="numberInput" promptText="Enter number" prefWidth="200" styleClass="text-field"/>
+            <Button text="Add" prefWidth="200" onAction="#handleAdd"/>
+            <Button text="Delete" prefWidth="200" onAction="#handleDelete"/>
+            <Button text="Output Sorted" prefWidth="200" onAction="#handleOutputSorted"/>
+            <Button text="Back to Menu" prefWidth="200" onAction="#backToMenu"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fx:id="canvasScrollPane" prefWidth="570" prefHeight="580"
+                    fitToWidth="false" fitToHeight="false">
+            <content>
+                <Pane fx:id="canvasPane">
+                    <Canvas fx:id="treeCanvas" width="570" height="580" styleClass="canvas"/>
+                </Pane>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

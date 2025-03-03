@@ -1,0 +1,65 @@
+/* app.css */
+
+/* Загальний стиль для всього застосунку */
+.root {
+    -fx-background-color: #FAFAFA;  /* Світлий фон */
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-text-fill: #424242;         /* Темний текст */
+}
+
+/* Стиль для кнопок */
+.button {
+    -fx-background-color: #2196F3;  /* Основний синій колір */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8 15 8 15;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0.0, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: #1976D2;  /* Трохи темніший синій при наведенні */
+}
+
+/* Стиль для ComboBox */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #BDBDBD;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+/* Стиль для TextField */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #BDBDBD;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+/* Стиль для ListView */
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #BDBDBD;
+}
+
+/* Стиль для AnchorPane - додаткові відступи */
+.anchor-pane {
+    -fx-padding: 20;
+}
+
+/* Стиль для Canvas – додаємо рамку для чіткості */
+.canvas {
+    -fx-background-color: white;
+    -fx-border-color: #BDBDBD;
+}
+
+/* Стиль для VBox, що містить питання у тестуванні */
+.vbox {
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}

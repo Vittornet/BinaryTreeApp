@@ -1,0 +1,10 @@
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.trees.binarytreeproject.infrastructure.controller.arch.MainStartController"
+           stylesheets="css/app.css">
+    <fx:include source="visualization.fxml" visible="false"/>
+    <fx:include source="info.fxml" visible="false"/>
+    <fx:include source="menu.fxml"/>
+    <fx:include source="tests.fxml" visible="false"/>
+</StackPane>
